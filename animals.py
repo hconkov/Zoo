@@ -1,12 +1,13 @@
 class Animal:
 
+    life_expectancy = {'tiger': 10, 'penguin': 5}
+
     def __init__(self, species, age, name, gender, weight):
-        self.species = self.species
+        self.species = species
         self.age = age
         self.name = name
         self.gender = gender
         self.weight = weight
-        self.life_expectancy = self.species.life_expectancy
 
     def grow(self, age, weight):
         self.age += age
@@ -21,11 +22,4 @@ class Animal:
         pass
 
     def chance_to_die(self):
-        return self.age / self.life_expectancy
-
-
-class Species:
-
-    def __init__(self, species, life_expectancy):
-        self.species = species
-        self.life_expectancy = life_expectancy
+        return self.age / Animal.life_expectancy[self.species]
